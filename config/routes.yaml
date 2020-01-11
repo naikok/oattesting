@@ -1,0 +1,9 @@
+getallquestions:
+    path: /questions
+    controller: App\Controller\GetAllQuestionsAndChoicesController::index
+    methods: [GET]
+
+savequestion:
+    path: /questions
+    controller: App\Controller\SaveQuestionsAndChoicesController::index
+    methods: [POST]
