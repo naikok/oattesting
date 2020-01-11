@@ -20,7 +20,7 @@ class GetAllQuestionsAndChoicesControllerTest extends WebTestCase
 
         $arrayresult = []; //this must be containing a response array format, right now as example I put and empty array
 
-        $executorService ->expects($this->once())
+        $executorService->expects($this->once())
         ->method('readDataQuestionsToLanguage')
         ->with($this->equalTo($lang))
         ->willReturn($arrayresult);
