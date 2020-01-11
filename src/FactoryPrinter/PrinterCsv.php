@@ -30,10 +30,8 @@ class PrinterCsv implements Printer
                     } else if ($index == "Created At") {
                         $questionObject->setCreatedAt($this->translatorService->translate($item));
                     } else {
-
                         $choice = new Choice();
                         $choice->setText($this->translatorService->translate($item));
-
                         $choices[] = $choice;
                     }
                 }
