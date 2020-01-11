@@ -9,22 +9,19 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SaveQuestionsAndChoicesController
 {
-
     public function index(ExecutorService $executorService, Request $request)
     {
-
         try {
-
             $content = $request->getContent();
             $response = json_decode($content,true);
             $question = $response['Question'];
 
-            if ((strlen($question['Question text']) == 0) || (is_null($question['Question text']))) {
+            if ((!array_key_exists('Question text', $question)) || (strlen($question['Question text']) == 0) || (is_null($question['Question text']))) {
                 throw new \Exception("Question text field is required", Response::HTTP_BAD_REQUEST);
             }
 
-            if (count($question['choices']) > 3) {
-                throw new \Exception("There are more expected responses for this question", Response::HTTP_BAD_REQUEST);
+            if ((!array_key_exists('choices', $question)) || count($question['choices']) > 3) {
+                throw new \Exception("There are more expected responses for this question or there are no choices available", Response::HTTP_BAD_REQUEST);
             }
 
             $time = $dt = new \DateTime();
