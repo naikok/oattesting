@@ -37,4 +37,4 @@ Solution problems:
     
     Some methods such as save questions into json file was not implemented due to lack of time, method save should be implemented for saving questions into json file
 
-    As improvement of work, TranslatorService can be an implemented with an  Interface methods that must be accomplished as mandatory contract, just in case of change to another translatorService for future. This issue gives more flexibiliy.
+    As improvement of work, TranslatorService can be implemented with an Interface, these methods must be accomplished as mandatory contract in any translator service new included, just in case of change to another translatorService for future. This issue gives more flexibiliy. Right now this is not implemented yet
