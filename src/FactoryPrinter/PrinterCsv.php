@@ -19,25 +19,27 @@ class PrinterCsv implements Printer
     {
         $questionObjects = [];
 
-        foreach ($data as $key => $val) {
-            $questionObject = new Question();
-            $choices = [];
+        if (!empty($data) && is_array($data)) {
+            foreach ($data as $key => $val) {
+                $questionObject = new Question();
+                $choices = [];
 
-            foreach($val as $index=>$item) {
-                if ($index == "Question text"){
-                    $questionObject->setText( $this->translatorService->translate($item));
-                } else if ($index == "Created At"){
-                    $questionObject->setCreatedAt($this->translatorService->translate($item));
-                } else {
+                foreach ($val as $index => $item) {
+                    if ($index == "Question text") {
+                        $questionObject->setText($this->translatorService->translate($item));
+                    } else if ($index == "Created At") {
+                        $questionObject->setCreatedAt($this->translatorService->translate($item));
+                    } else {
 
-                    $choice = new Choice();
-                    $choice->setText($this->translatorService->translate($item));
+                        $choice = new Choice();
+                        $choice->setText($this->translatorService->translate($item));
 
-                    $choices[] = $choice;
+                        $choices[] = $choice;
+                    }
                 }
+                $questionObject->setChoices($choices);
+                $questionObjects[] = $questionObject;
             }
-            $questionObject->setChoices($choices);
-            $questionObjects[] = $questionObject;
         }
 
         return $questionObjects;

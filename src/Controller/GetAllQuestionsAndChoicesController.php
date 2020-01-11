@@ -26,16 +26,16 @@ class GetAllQuestionsAndChoicesController
             $translatedQuestions = $executorService->readDataQuestionsToLanguage($lang);
 
             return new JsonResponse([
-                    'success' => true,
-                    'code' => Response::HTTP_OK,
-                    'message' => $translatedQuestions,
+                'success' => true,
+                'code' => Response::HTTP_OK,
+                'message' => $translatedQuestions,
             ]);
 
         } catch(\Exception $e) {
             return new JsonResponse([
-                    'success' => false,
-                    'code' => $e->getCode(),
-                    'message' => $e->getMessage(),
+                'success' => false,
+                'code' => $e->getCode(),
+                'message' => $e->getMessage(),
             ]);
         }
     }

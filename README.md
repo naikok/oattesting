@@ -34,12 +34,14 @@ There are 2 main endpoints that are called under questions path:
       {"Question":{"Question text":"How are you doing?","choices":["fine","very good","too bad"]}}
         
         
-Solution:
+Solution problems:
+
+    In order to change the datasource to be managed, go to the ManagerDataService.php class implemented as Adapter Pattern Design and change the variable $dataSource into json or csv
 
     Solution can be improved much more, by covering with unit testing and integration tests.
     Due to lack of timing I could not get this done.
     
-    Some methods such as save questions into json file was not implemented due to lack of timing.
+    Some methods such as save questions into json file was not implemented due to lack of time, method save should be implemented for saving questions into json file
 
-    As improvement TranslatorService can be an implemented with an  Interface with some methods in case of using another translator type tomorrow.
-
+    As improvement of work, TranslatorService can be an implemented with an  Interface methods that must be accomplished as mandatory contract, just in case of change to another translatorService for future.
+    This issue gives more flexibiliy.

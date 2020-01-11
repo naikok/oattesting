@@ -5,6 +5,7 @@ use App\Service\Translators\TranslatorService;
 use App\Service\ManagerDataService;
 use App\Entity\Question;
 use App\Entity\Choice;
+use App\FactoryPrinter\PrinterFactory;
 
 class ExecutorService
 {
@@ -25,6 +26,6 @@ class ExecutorService
 
     public function saveData(array $data) : bool
     {
-        return $this->managerDataService->saveData($data);
+        return $this->managerDataService->save($data);
     }
 }

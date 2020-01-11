@@ -27,7 +27,7 @@ class CsvManager implements IManagerData
     public function readData() : array
     {
         if ($this->checkIfFileExistsOnPath($this->filepath) === false) {
-            return [];
+           return [];
         }
 
         $csv = array_map("str_getcsv", file($this->filepath,FILE_SKIP_EMPTY_LINES));
@@ -39,35 +39,6 @@ class CsvManager implements IManagerData
 
         return $csv;
     }
-
-    public function readResponseAndParse(array $data) : array
-    {
-        $questionObjects = [];
-
-        foreach ($data as $key => $val) {
-            $questionObject = new Question();
-            $choices = [];
-
-            foreach($val as $index=>$item) {
-                if ($index == "Question text"){
-                    $questionObject->setText( $this->translatorService->translate($item));
-                } else if ($index == "Created At"){
-                    $questionObject->setCreatedAt($this->translatorService->translate($item));
-                } else {
-
-                    $choice = new Choice();
-                    $choice->setText($this->translatorService->translate($item));
-
-                    $choices[] = $choice;
-                }
-            }
-            $questionObject->setChoices($choices);
-            $questionObjects[] = $questionObject;
-        }
-
-        return $questionObjects;
-    }
-
 
     public function save(array $data) : bool
     {

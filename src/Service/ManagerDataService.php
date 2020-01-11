@@ -16,7 +16,7 @@ class ManagerDataService
     public $printer = null;
     public $translatorService = null;
 
-    public $dataSource = 'csv'; //change this param accessing data and managing data via json or csv
+    public $dataSource = 'csv'; //change this param to use a different format datasource (json, csv...) for accessing data and managing data.
 
     public function __construct(TranslatorService $translatorService)
     {
@@ -52,6 +52,7 @@ class ManagerDataService
     public function setPrinterWithTranslatorLanguage(string $targetLang) : Printer
     {
         $this->translatorService->setAutoDetectOriginLang($targetLang);
+        $this->translatorService->setTargetLang($targetLang);
         $this->printer = PrinterFactory::getType($this->dataSource, $this->translatorService);
 
         return $this->printer;
