@@ -11,7 +11,9 @@ class SaveQuestionsAndChoicesController
 {
 
     /*
-     * This method will not be working for JSON ManagerDataService as the method save is not implemented
+     * Request post example
+     *
+     * body content =>{"Question":{"Question text":"How are you doing?","choices":["fine thans","bad","too bad"]}}
      *
      */
     public function index(ExecutorService $executorService, Request $request)
