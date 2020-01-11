@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetAllQuestionsAndChoicesControllerTest extends WebTestCase
 {
-    public function testGetAllQuestionsAndChoicesReturnsJsonResponse()
+    public function testGetAllQuestionsAndChoicesReturnsTrue()
     {
         $request = $this->getMock("Symfony\Component\HttpFoundation\Request");
         $executorService = $this->getMockBuilder(ExecutorService::class)->disableOriginalConstructor()->getMock();
