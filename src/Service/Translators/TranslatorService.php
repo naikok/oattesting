@@ -20,7 +20,7 @@ class TranslatorService
 
     public function setOriginLang(string $lang) : void
     {
-        $this->getClient()->setSource($lang); // Translate from English
+        $this->getClient()->setSource($lang);
     }
 
     public function setAutoDetectOriginLang() : void
@@ -30,7 +30,7 @@ class TranslatorService
 
     public function setTargetLang(string $lang) : void
     {
-        $this->getClient()->setTarget($lang); // Translate from English
+        $this->getClient()->setTarget($lang);
     }
 
     public function translate(string $text) : string
