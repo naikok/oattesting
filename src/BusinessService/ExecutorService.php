@@ -20,6 +20,8 @@ class ExecutorService
     public function readDataQuestionsToLanguage(string $lang) : array
     {
         $data = $this->managerDataService->readData();
+
+        var_dump($data);
         $this->managerDataService->setPrinterWithTranslatorLanguage($lang);
         return $this->managerDataService->readResponseAndParse($data);
     }
