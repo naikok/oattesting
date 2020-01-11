@@ -30,6 +30,7 @@ class JsonManager implements IManagerData
 
         $string = file_get_contents($this->filepath);
         $result = json_decode($string, true);
+
         return $result;
     }
 
