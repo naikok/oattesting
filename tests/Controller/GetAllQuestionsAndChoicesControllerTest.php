@@ -3,10 +3,11 @@
 namespace App\Tests\Service\Translators;
 use App\Controller\GetAllQuestionsAndChoicesController;
 use App\BusinessService\ExecutorService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetAllQuestionsAndChoicesControllerTest extends WebTestCase
 {
-    public function testGetAllQuestionsAndChoicesReturnsTrue()
+    public function testGetAllQuestionsAndChoicesReturnsJsonResponse()
     {
         $request = $this->getMock("Symfony\Component\HttpFoundation\Request");
         $executorService = $this->getMockBuilder(ExecutorService::class)->disableOriginalConstructor()->getMock();
@@ -25,7 +26,7 @@ class GetAllQuestionsAndChoicesControllerTest extends WebTestCase
         ->willReturn($arrayresult);
 
         $controller = new GetAllQuestionsAndChoicesController();
-
-        $controller->index($request, $executorService);
+        $result = $controller->index($request, $executorService);
+        $this->assertTrue($result instanceof JsonResponse);
     }
 }
