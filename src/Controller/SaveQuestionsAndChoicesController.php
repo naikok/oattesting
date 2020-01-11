@@ -16,8 +16,9 @@ class SaveQuestionsAndChoicesController
      * body content =>{"Question":{"Question text":"How are you doing?","choices":["fine thans","bad","too bad"]}}
      *
      */
-    public function index(ExecutorService $executorService, Request $request) : string
+    public function index(ExecutorService $executorService, Request $request) : JsonResponse
     {
+
         try {
 
             $content = $request->getContent();
@@ -38,10 +39,11 @@ class SaveQuestionsAndChoicesController
 
             $response = $executorService->saveData($data);
 
+
             return new JsonResponse([
                 'success' => $response,
-                'code' => ($response) ? Response::HTTP_OK : Response::HTTP_UNPROCESSABLE_ENTITY,
-                'message' => ($response) ? "New data was saved properly" : "We could not save the content into the file"
+                'code' => ($response === false) ? Response::HTTP_UNPROCESSABLE_ENTITY : Response::HTTP_OK,
+                'message' => ($response === false) ? "We could not save the content into the file" : "New data saved properly"
             ]);
 
         } catch(\Exception $e) {

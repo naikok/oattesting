@@ -16,7 +16,7 @@ class ManagerDataService
     public $printer = null;
     public $translatorService = null;
 
-    public $dataSource = 'json'; //change this param to use a different format datasource (json, csv...) for accessing data and managing data.
+    public $dataSource = 'csv'; //change this param to use a different format datasource (json, csv...) for accessing data and managing data.
 
     public function __construct(TranslatorService $translatorService)
     {

@@ -41,7 +41,7 @@ class JsonManager implements IManagerData
     {
 
 
-
+        return false;
 
     }
 }
