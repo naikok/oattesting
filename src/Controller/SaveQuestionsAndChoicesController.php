@@ -26,14 +26,15 @@ class SaveQuestionsAndChoicesController
 
             $time = $dt = new \DateTime();
             $currentDateTime = $time->format('Y-m-d H:i:s');
+            //this only will be working for csv file we need to adapt it for json
             $data = ["Question text" => $question['Question text'], "created At" => $currentDateTime, "Choice 1"=> $question['choices'][0], "Choice" => $question['choices'][1],"Choice 3" => $question['choices'][2]];
 
             $response = $executorService->save($data);
 
             return new JsonResponse([
-                'success' => true,
-                'code' => Response::HTTP_OK,
-                'message' => "New data was saved properly"
+                'success' => $response,
+                'code' => ($response) ? Response::HTTP_OK : Response::HTTP_UNPROCESSABLE_ENTITY,
+                'message' => ($response) ? "New data was saved properly" : "Data could not be saved as expected"
             ]);
 
         } catch(\Exception $e) {
