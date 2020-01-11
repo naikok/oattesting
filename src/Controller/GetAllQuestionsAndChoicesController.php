@@ -12,8 +12,7 @@ use App\Entity\Choice;
 
 class GetAllQuestionsAndChoicesController
 {
-
-    public function index(ExecutorService $executorService, Request $request)
+    public function index(ExecutorService $executorService, Request $request) : string
     {
         try {
 

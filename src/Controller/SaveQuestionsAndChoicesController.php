@@ -16,9 +16,8 @@ class SaveQuestionsAndChoicesController
      * body content =>{"Question":{"Question text":"How are you doing?","choices":["fine thans","bad","too bad"]}}
      *
      */
-    public function index(ExecutorService $executorService, Request $request)
+    public function index(ExecutorService $executorService, Request $request) : string
     {
-
         try {
 
             $content = $request->getContent();
