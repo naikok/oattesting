@@ -20,7 +20,7 @@ class ManagerDataFactory
                 $instance = new JsonManager();
                 break;
             default:
-                throw new \Exception('Error when creating a new Manager to handle the data', Response::NOT_FOUND);
+                $instance = null;
                 break;
         }
 
