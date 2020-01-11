@@ -20,7 +20,7 @@ class GetAllQuestionsAndChoicesController
             $lang = $request->get('lang');
 
             if (empty($lang) || is_null($lang)) {
-                    throw new \Exception("lang parameter is required", Response::HTTP_BAD_REQUEST);
+                throw new \Exception("lang parameter is required", Response::HTTP_BAD_REQUEST);
             }
 
             $translatedQuestions = $executorService->readDataQuestionsToLanguage($lang);

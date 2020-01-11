@@ -27,7 +27,7 @@ class CsvManager implements IManagerData
     public function readData() : array
     {
         if ($this->checkIfFileExistsOnPath($this->filepath) === false) {
-            throw new \Exception('Csv file could not be read as the filepath was not found' . $this->filepath, Response::HTTP_NOT_FOUND);
+            return [];
         }
 
         $csv = array_map("str_getcsv", file($this->filepath,FILE_SKIP_EMPTY_LINES));

@@ -25,7 +25,7 @@ class JsonManager implements IManagerData
     public function readData() : array
     {
         if ($this->checkIfFileExistsOnPath($this->filepath) === false) {
-            throw new \Exception('Json file could not be read as the filepath was not found' . $this->filepath, Response::HTTP_NOT_FOUND);
+           return [];
         }
 
         $string = file_get_contents($this->filepath);
