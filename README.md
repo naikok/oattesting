@@ -9,11 +9,6 @@ Installation:
     Clone the project from github and install all dependencies needed to get this working.
     In order to install the dependencies, just go to the root folder of the project and make composer install
 
-Unit testing (requires phpunit installed on your system):
-
-    Go to the main root path of the project and execute php bin/phpunit tests in order to run the tests.
-
-
 How to make this working:
 
     Go to the main project folder and run the server by using this command line: php bin/console server:start *:8080
@@ -39,9 +34,7 @@ Solution problems:
     In order to change the datasource to be managed, go to the ManagerDataService.php class implemented as Adapter Pattern Design and change the variable $dataSource into json or csv
 
     Solution can be improved much more, by covering with unit testing and integration tests.
-    Due to lack of timing I could not get this done.
     
     Some methods such as save questions into json file was not implemented due to lack of time, method save should be implemented for saving questions into json file
 
-    As improvement of work, TranslatorService can be an implemented with an  Interface methods that must be accomplished as mandatory contract, just in case of change to another translatorService for future.
-    This issue gives more flexibiliy.
+    As improvement of work, TranslatorService can be an implemented with an  Interface methods that must be accomplished as mandatory contract, just in case of change to another translatorService for future. This issue gives more flexibiliy.
