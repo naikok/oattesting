@@ -29,7 +29,7 @@ class SaveQuestionsAndChoicesController
                 throw new \Exception("Question text field is required", Response::HTTP_BAD_REQUEST);
             }
 
-            if ((!array_key_exists('choices', $question)) || (!is_array($question['choices'])) || (count($question['choices']) > 3)) {
+            if ((!array_key_exists('choices', $question)) || (!is_array($question['choices'])) || (count($question['choices']) != 3)) {
                 throw new \Exception("There are more expected responses for this question", Response::HTTP_BAD_REQUEST);
             }
 
